@@ -6,4 +6,7 @@ export const general = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  Padding: {
+    padding: 16,
+  },
 });
