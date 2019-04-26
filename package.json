@@ -4,13 +4,16 @@
   "private": true,
   "scripts": {
     "start": "sh .env && API='localhost:8300' node node_modules/react-native/local-cli/cli.js start",
+    "fix": "watchman watch-del-all",
     "test": "jest"
   },
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.5",
     "react-native-bouncing-preloader": "^1.0.1",
-    "react-native-i18n": "^2.0.15"
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-i18n": "^2.0.15",
+    "react-navigation": "^3.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
