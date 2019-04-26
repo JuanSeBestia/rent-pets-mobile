@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "sh .env && API='localhost:8300' node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "@types/react-native": "^0.57.50",
     "@types/react-test-renderer": "^16.8.1",
     "babel-jest": "^24.7.1",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
     "react-test-renderer": "16.8.3",
