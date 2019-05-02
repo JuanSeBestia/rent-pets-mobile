@@ -24,3 +24,7 @@ export const navigatorDefaultOptions = (repalceOptions = {}) => (
   );
   return options;
 };
+
+// class NavigationService{
+//   static init()
+// }

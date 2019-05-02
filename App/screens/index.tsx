@@ -26,7 +26,7 @@ const AppLoggedNavigator = createDrawerNavigator(
 );
 
 const MainNavigator = createSwitchNavigator({
-  Login: { screen: Login },
+  // Login: { screen: Login },
   LoggedApp: { screen: AppLoggedNavigator },
 });
 
