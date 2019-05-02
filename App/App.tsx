@@ -9,17 +9,18 @@
  */
 
 import React, { Component } from 'react';
-
-import Loading from './screens/Loading';
 import RootAppNavigations from './screens';
+import { NavigationService } from './util/navigator';
 
 interface Props {}
 export default class App extends Component<Props> {
   render() {
     return (
-      <RootAppNavigations />
+      <RootAppNavigations
+        ref={navigatorRef => {
+          navigatorRef && NavigationService.setTopLevelNavigator(navigatorRef);
+        }}
+      />
     );
   }
 }
-
-

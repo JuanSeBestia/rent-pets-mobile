@@ -8,8 +8,7 @@ import ListPets from './ListPets';
 interface Props extends NavigationScreenProps {}
 
 export class PetsScreen extends Component<Props> {
-  static navigationOptions = navigatorDefaultOptions({ title: I18n.t('PETS') });
-
+  static navigationOptions = navigatorDefaultOptions({ title: I18n.t('PETS')});
   render() {
     return (
       <Container>

@@ -10,8 +10,10 @@ import PetsScreen from './Pets/PetsScreen';
 import Loading from './Loading';
 import SideBar from './SideBar/SideBar';
 import Login from './Login';
+import PetDetail from './PetDetail/PetDetail';
 const PetsStackNavigator = createStackNavigator({
   Pets: { screen: PetsScreen },
+  PetDetail: { screen: PetDetail },
 });
 
 const AppLoggedNavigator = createDrawerNavigator(
