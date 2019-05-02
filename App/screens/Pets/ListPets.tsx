@@ -20,7 +20,7 @@ export const PetItem = ({ pet }: { pet: iPet }) => {
   const onPress = () => {
     NavigationService.dispatch(
       NavigationActions.navigate({
-        routeName: 'PetDetail',
+        routeName: 'PetScreenDetail',
         params: { pet: pet },
       }),
     );

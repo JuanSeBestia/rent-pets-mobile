@@ -1,48 +1,32 @@
-import React from "react";
-import { Alert } from "react-native";
+import React from 'react';
+import { Alert } from 'react-native';
 
 import {
   Text,
   Container,
   Card,
   CardItem,
-  Body,
   Content,
-  Header,
-  Left,
   Right,
   Icon,
-  Title,
   Button,
-} from "native-base";
+} from 'native-base';
 
-import {  NavigationScreenProps } from "react-navigation";
+import { NavigationScreenProps } from 'react-navigation';
+import { navigatorDefaultOptions } from '../../util/navigator';
+import I18n from '../../I18n';
 
 interface Props extends NavigationScreenProps {}
 
 export default class Profile extends React.Component<Props> {
   componentDidMount() {
     if (this.props.navigation.state.params !== undefined) {
-      Alert.alert("USER found", this.props.navigation.state.params.name);
+      Alert.alert('USER found', this.props.navigation.state.params.name);
     }
   }
-  static navigationOptions = ({ navigation } : NavigationScreenProps) => {
-    return {
-      header: (
-        <Header>
-          <Left>
-            <Button transparent onPress={() => navigation.toggleDrawer()}>
-              <Icon name="menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Profile</Title>
-          </Body>
-          <Right />
-        </Header>
-      )
-    };
-  }
+  static navigationOptions = navigatorDefaultOptions({
+    title: I18n.t('profile'),
+  });
   render() {
     return (
       <Container>
@@ -61,7 +45,7 @@ export default class Profile extends React.Component<Props> {
             rounded
             primary
             style={{ marginTop: 10 }}
-            onPress={() => this.props.navigation.navigate("EditScreenOne")}
+            onPress={() => this.props.navigation.navigate('EditScreenOne')}
           >
             <Text>Goto EditScreen One</Text>
           </Button>

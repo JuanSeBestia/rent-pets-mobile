@@ -51,7 +51,7 @@ export class Login extends Component<Props> {
               console.log({ values, actions });
               actions.setSubmitting(false);
               this.props.navigation.dispatch(
-                NavigationActions.navigate({ routeName: 'Pets' }),
+                NavigationActions.navigate({ routeName: 'PetsScreen' }),
               );
             }}
             render={formikBag => (

@@ -5,22 +5,26 @@ import {
   createSwitchNavigator,
   createStackNavigator,
 } from 'react-navigation';
-import Profile from './Profile';
 import PetsScreen from './Pets/PetsScreen';
 import Loading from './Loading';
 import SideBar from './SideBar/SideBar';
 import Login from './Login';
 import PetDetail from './PetDetail/PetDetail';
+import Rents from './Rents/Rents';
+import Profile from './Profile/Profile';
+
 const PetsStackNavigator = createStackNavigator({
-  Pets: { screen: PetsScreen },
-  PetDetail: { screen: PetDetail },
+  PetsScreen: { screen: PetsScreen },
+  PetScreenDetail: { screen: PetDetail },
 });
 
 const AppLoggedNavigator = createDrawerNavigator(
   {
     Pets: { screen: PetsStackNavigator },
-    Orders: { screen: Loading },
-    Profile: { screen: Profile },
+    Rents: { screen: createStackNavigator({ RentsScreen: { screen: Rents } }) },
+    Profile: {
+      screen: createStackNavigator({ ProfileScreen: { screen: Profile } }),
+    },
   },
   {
     contentComponent: props => <SideBar {...props} />,

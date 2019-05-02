@@ -1,14 +1,8 @@
-import React from "react";
-import { Image } from "react-native";
-import {
-  Text,
-  Container,
-  List,
-  ListItem,
-  Content,
-} from "native-base";
-import { NavigationScreenProps } from "react-navigation";
-const routes = ["Pets", "Profile"];
+import React from 'react';
+import { Image } from 'react-native';
+import { Text, Container, List, ListItem, Content } from 'native-base';
+import { NavigationScreenProps } from 'react-navigation';
+const routes = ['Pets', 'Profile', 'Rents'];
 
 interface Props extends NavigationScreenProps {}
 
@@ -20,13 +14,13 @@ export default class SideBar extends React.Component<any> {
           <Image
             source={{
               uri:
-                "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png"
+                'https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png',
             }}
             style={{
               height: 120,
-              width: "100%",
-              alignSelf: "stretch",
-              position: "absolute"
+              width: '100%',
+              alignSelf: 'stretch',
+              position: 'absolute',
             }}
           />
           <Image
@@ -34,13 +28,13 @@ export default class SideBar extends React.Component<any> {
             style={{
               height: 80,
               width: 70,
-              position: "absolute",
-              alignSelf: "center",
-              top: 20
+              position: 'absolute',
+              alignSelf: 'center',
+              top: 20,
             }}
             source={{
               uri:
-                "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/logo.png"
+                'https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/logo.png',
             }}
           />
           <List
