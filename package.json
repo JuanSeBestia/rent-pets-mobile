@@ -8,13 +8,15 @@
     "test": "jest"
   },
   "dependencies": {
+    "formik": "^1.5.4",
     "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.5",
     "react-native-bouncing-preloader": "^1.0.1",
     "react-native-gesture-handler": "^1.1.0",
     "react-native-i18n": "^2.0.15",
-    "react-navigation": "^3.9.1"
+    "react-navigation": "^3.9.1",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -23,6 +25,7 @@
     "@types/react": "^16.8.14",
     "@types/react-native": "^0.57.50",
     "@types/react-test-renderer": "^16.8.1",
+    "@types/yup": "^0.26.12",
     "babel-jest": "^24.7.1",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "jest": "^24.7.1",

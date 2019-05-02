@@ -16,7 +16,10 @@ export const generalStyles = StyleSheet.create({
     width: win.width,
   },
   Padding: {
-    padding: spacing[5],
+    padding: spacing[4],
+  },
+  Margin: {
+    margin: spacing[4],
   },
   FormFinalInput: {
     marginBottom: spacing[5],
