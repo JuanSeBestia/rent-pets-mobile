@@ -11,6 +11,9 @@ export const assets = {
     sticker_09: require('./assets/imgs/stickers/09.png'),
     sticker_10: require('./assets/imgs/stickers/10.png'),
     sticker_11: require('./assets/imgs/stickers/11.png'),
-    sticker_12: require('./assets/imgs/stickers/12.png'),
+    logo_blank: require('./assets/imgs/logo_blank.png'),
+    logo: require('./assets/imgs/logo.png'),
+
+    
   },
 };

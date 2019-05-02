@@ -1,3 +1,30 @@
 {
-    "WELCOME":"Bienvenido a ReactNative!"
+  "signIn": "Sign In",
+  "logOut": "Log Out",
+  "loginLogoutExampleTitle": "Login/Logout Redux + Sagas Example",
+  "progressiveImageComponent": "Progressive Image Component",
+  "api": "API",
+  "locale": "I18n Locale",
+  "rnVectorIcons": "RN Vector Icons",
+  "loginWithFacebook": "Login with Facebook",
+  "rni18n": "RN i18n",
+  "igniteGenerated": "Ignite Generate Screens",
+  "forgotPassword": "Forgot Password",
+  "username": "Usuario",
+  "password": "Contraseña",
+  "cancel": "Cancel",
+  "welcome": "Welcome",
+  "login": "Inciar sesión",
+  "tempIndicator": "F",
+  "componentExamples": "Component Examples",
+  "usageExamples": "Usage Examples",
+  "apiTesting": "API Testing",
+  "themeSettings": "Theme Settings",
+  "deviceDetails": "Device Details",
+  "noItems": "No Items",
+  "search": "Search",
+
+  "PETS": "Mascotas",
+
+  "WELCOME": "Bienvenido a ReactNative!"
 }

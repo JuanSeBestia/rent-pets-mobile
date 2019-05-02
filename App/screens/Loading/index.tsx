@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { general, assets } from '../../theme';
+import { generalStyles, assets } from '../../theme';
 import { API } from './../../environment/environment';
 import I18n from './../../I18n';
 
@@ -14,9 +14,9 @@ const listStickers = Object.keys(images)
 
 function Loading() {
   return (
-    <View style={general.ContainerCenter}>
+    <View style={generalStyles.ContainerCenter}>
       <BouncingPreloader icons={listStickers} />
-      <Text style={general.Padding}>
+      <Text style={generalStyles.Padding}>
         {I18n.t('LOADING')} {API}
       </Text>
     </View>

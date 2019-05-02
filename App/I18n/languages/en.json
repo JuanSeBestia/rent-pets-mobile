@@ -24,5 +24,7 @@
    "noItems": "No Items",
    "search": "Search",
 
+   "PETS" : "Mascotas",
+
    "WELCOME":"Welcome to React Native!"
 }
