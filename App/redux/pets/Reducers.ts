@@ -2,6 +2,11 @@ import * as ActionTypes from './ActionTypes';
 import { iAction } from '../d';
 import { iPet } from '../../util/models/pets';
 
+export interface iStatePets {
+  isLoading: boolean;
+  errMess: string;
+  pets: iPet[];
+}
 export const pets = (
   state = { isLoading: true, errMess: null, pets: [] },
   action: iAction<iPet | string>,
