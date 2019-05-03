@@ -6,13 +6,13 @@ import {
   createStackNavigator,
 } from 'react-navigation';
 import PetsScreen from './Pets/PetsScreen';
-import Loading from './Loading';
 import SideBar from './SideBar/SideBar';
 import Login from './Login';
 import PetDetail from './PetDetail/PetDetail';
 import Rents from './Rents/Rents';
 import Profile from './Profile/Profile';
 
+// Navigator
 const PetsStackNavigator = createStackNavigator({
   PetsScreen: { screen: PetsScreen },
   PetScreenDetail: { screen: PetDetail },

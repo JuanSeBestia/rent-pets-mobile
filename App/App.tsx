@@ -12,15 +12,31 @@ import React, { Component } from 'react';
 import RootAppNavigations from './screens';
 import { NavigationService } from './util/navigator';
 
+// Redux
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
+import Loading from './screens/Loading';
+
+const { persistor, store } = ConfigureStore();
+
 interface Props {}
 export default class App extends Component<Props> {
   render() {
     return (
-      <RootAppNavigations
-        ref={navigatorRef => {
-          navigatorRef && NavigationService.setTopLevelNavigator(navigatorRef);
-        }}
-      />
+      <Provider store={store}>
+        <PersistGate
+          loading={<Loading title="persist" />}
+          persistor={persistor}
+        >
+          <RootAppNavigations
+            ref={navigatorRef => {
+              navigatorRef &&
+                NavigationService.setTopLevelNavigator(navigatorRef);
+            }}
+          />
+        </PersistGate>
+      </Provider>
     );
   }
 }

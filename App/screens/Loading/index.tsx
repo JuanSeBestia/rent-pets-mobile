@@ -12,12 +12,12 @@ const listStickers = Object.keys(images)
   .filter(key => key.startsWith('sticker_'))
   .map(key => images[key]);
 
-function Loading() {
+function Loading({title} = {title:''}) {
   return (
     <View style={generalStyles.ContainerCenter}>
       <BouncingPreloader icons={listStickers} />
       <Text style={generalStyles.Padding}>
-        {I18n.t('LOADING')} {API}
+        {I18n.t('LOADING')} - {API} - {title}
       </Text>
     </View>
   );

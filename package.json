@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "faker": "^4.1.0",
     "formik": "^1.5.4",
     "native-base": "^2.12.1",
@@ -18,6 +19,11 @@
     "react-native-gesture-handler": "^1.1.0",
     "react-native-i18n": "^2.0.15",
     "react-navigation": "^3.9.1",
+    "react-redux": "^7.0.3",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^1.0.2",
+    "redux-thunk": "^2.3.0",
     "yup": "^0.27.0"
   },
   "devDependencies": {
@@ -28,13 +34,16 @@
     "@types/ramda": "^0.26.8",
     "@types/react": "^16.8.14",
     "@types/react-native": "^0.57.50",
+    "@types/react-redux": "^7.0.8",
     "@types/react-test-renderer": "^16.8.1",
+    "@types/redux-logger": "^3.0.7",
     "@types/yup": "^0.26.12",
     "babel-jest": "^24.7.1",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
     "react-test-renderer": "16.8.3",
+    "redux-devtools-extension": "^2.13.8",
     "typescript": "^3.4.5"
   },
   "jest": {
