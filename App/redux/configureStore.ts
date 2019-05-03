@@ -5,6 +5,7 @@ import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 
 import { pets } from './pets/Reducers';
+import { UserReducer } from './user';
 
 import rootSaga from './RootSagas';
 
@@ -37,6 +38,7 @@ export const ConfigureStore = () => {
   const store = createStore(
     persistCombineReducers(configPersistStore, {
       pets,
+      user: UserReducer,
     }),
     enhancer,
   );

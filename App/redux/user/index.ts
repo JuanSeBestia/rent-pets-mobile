@@ -2,19 +2,19 @@ import { createReducer, createActions } from 'reduxsauce';
 import { iAction } from '../d';
 
 /* ------------- Types and Action Creators ------------- */
-export interface iTypes {
+export interface iTypesUser {
   USER_REQUEST: string;
   USER_SUCCESS: string;
   USER_FAILURE: string;
   USER_FETCH: string;
 }
-export interface iCreators {
+export interface iCreatorsUser {
   userRequest: (payload: string) => AnyAction;
   userFetch: (payload: string) => AnyAction;
   userSuccess: (payload: any) => AnyAction;
   userFailure: (payload: string) => AnyAction;
 }
-const { Types, Creators } = createActions<iTypes, iCreators>(
+const { Types, Creators } = createActions<iTypesUser, iCreatorsUser>(
   {
     userRequest: ['payload'],
     userFetch: ['payload'],
@@ -29,14 +29,14 @@ const UserCreators = Creators;
 export default UserCreators;
 
 /* ------------- Initial State ------------- */
-interface iState {
+export interface iStateUser {
   userData: any;
   fetching: boolean;
   error: string;
   username: string | undefined;
 }
 
-export const INITIAL_STATE: iState = {
+export const INITIAL_STATE: iStateUser = {
   userData: undefined,
   fetching: false,
   error: '',
@@ -46,23 +46,23 @@ export const INITIAL_STATE: iState = {
 /* ------------- Selectors ------------- */
 
 export const UserDataSelectors = {
-  selectAvatar: (state: { user: iState }) => state.user.userData,
+  selectAvatar: (state: { user: iStateUser }) => state.user.userData,
 };
 
 /* ------------- Reducers ------------- */
 
 // request the userdata for a user
 export const request = (
-  state: iState,
+  state: iStateUser,
   { payload }: iAction<string>,
-): iState => ({
+): iStateUser => ({
   ...state,
   fetching: true,
   username: payload,
 });
 
 // successful userdata lookup
-export const success = (state: iState, { payload }: iAction<any>): iState => ({
+export const success = (state: iStateUser, { payload }: iAction<any>): iStateUser => ({
   ...state,
   fetching: false,
   userData: payload,
@@ -71,9 +71,9 @@ export const success = (state: iState, { payload }: iAction<any>): iState => ({
 
 // failed to get the userData
 export const failure = (
-  state: iState,
+  state: iStateUser,
   { payload }: iAction<string>,
-): iState => ({
+): iStateUser => ({
   ...state,
   fetching: false,
   error: payload || '',

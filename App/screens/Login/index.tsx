@@ -17,6 +17,10 @@ import * as Yup from 'yup';
 import { Image } from 'react-native';
 import ErrorMessageText from '../../UI/ErrorMessageText';
 import { NavigationScreenProps, NavigationActions } from 'react-navigation';
+import UserCreators, { iStateUser, iCreatorsUser } from '../../redux/user';
+import { Dispatch, bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import props from 'ramda/es/props';
 
 const SignupSchema = Yup.object().shape({
   password: Yup.string()
@@ -29,8 +33,35 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-interface Props extends NavigationScreenProps {}
+interface iPropsState extends iStateUser {}
+const mapStateToProps = (state: { user: iStateUser }): iPropsState => {
+  return {
+    ...state.user,
+  };
+};
+
+interface iPropsDispatch extends iCreatorsUser {}
+const mapDispatchToProps = (dispatch: Dispatch): iPropsDispatch => ({
+  // @ts-ignore
+  ...bindActionCreators(UserCreators, dispatch),
+});
+
+interface Props extends NavigationScreenProps, iStateUser, iCreatorsUser {}
 export class Login extends Component<Props> {
+  constructor(props: Props) {
+    super(props);
+    if (this.props.userData) this.goToApp();
+  }
+  componentWillReceiveProps(nextProps: Props) {
+    if (nextProps.userData) this.goToApp();
+    console.log('Login:changeProps', { props: this.props, nextProps });
+  }
+
+  goToApp = () => {
+    this.props.navigation.dispatch(
+      NavigationActions.navigate({ routeName: 'PetsScreen' }),
+    );
+  };
   render() {
     return (
       <Container>
@@ -50,9 +81,7 @@ export class Login extends Component<Props> {
             onSubmit={(values, actions) => {
               console.log({ values, actions });
               actions.setSubmitting(false);
-              this.props.navigation.dispatch(
-                NavigationActions.navigate({ routeName: 'PetsScreen' }),
-              );
+              this.props.userFetch(values.username);
             }}
             render={formikBag => (
               <Form>
@@ -108,4 +137,7 @@ export class Login extends Component<Props> {
   }
 }
 
-export default Login;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Login);
