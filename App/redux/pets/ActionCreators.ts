@@ -4,10 +4,12 @@ import { iAction } from '../d';
 
 export const fetchPets = (): iAction<null> => ({
   type: ActionTypes.PETS_FETCH,
+  payload: null,
 });
 
 export const petsLoading = (): iAction<null> => ({
   type: ActionTypes.PETS_LOADING,
+  payload: null,
 });
 
 export const petsFailed = (errorMessage: string): iAction<string> => ({
@@ -15,7 +17,7 @@ export const petsFailed = (errorMessage: string): iAction<string> => ({
   payload: errorMessage,
 });
 
-export const addPets = (pets: iPet): iAction<iPet> => ({
+export const addPets = (pets: iPet[]): iAction<iPet[]> => ({
   type: ActionTypes.PETS_ADD,
   payload: pets,
 });

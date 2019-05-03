@@ -18,7 +18,7 @@ interface iPropsDispatch {
   fetchPets: () => iAction<null>;
   petsLoading: () => iAction<null>;
   petsFailed: (errorMessage: string) => iAction<string>;
-  addPets: (pets: iPet) => iAction<iPet>;
+  addPets: (pets: iPet[]) => iAction<iPet[]>;
 }
 const mapDispatchToProps = (dispatch: Dispatch): iPropsDispatch => ({
   ...bindActionCreators(PetsActionsCreators, dispatch),
