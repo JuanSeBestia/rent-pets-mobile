@@ -12,7 +12,7 @@ export interface iTypesUser {
 export interface iCreatorsUser {
   userRequest: (payload: string) => AnyAction;
   userFetch: (payload: string) => AnyAction;
-  userSuccess: (payload: any) => AnyAction;
+  userSuccess: (payload: UserData) => AnyAction;
   userFailure: (payload: string) => AnyAction;
   loggout: () => AnyAction;
 }
