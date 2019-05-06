@@ -58,8 +58,7 @@ const mapDispatchToProps = (dispatch: Dispatch): iPropsDispatch => ({
 
 interface Props extends NavigationScreenProps, iStateUser, iCreatorsUser {}
 
-class Profile extends React.Component<Props, { loading: boolean }> {
-  state = { loading: false };
+class Profile extends React.Component<Props> {
   static navigationOptions = navigatorDefaultOptions({
     title: I18n.t('profile'),
   });
@@ -80,7 +79,7 @@ class Profile extends React.Component<Props, { loading: boolean }> {
             onSubmit={(values, actions) => {
               console.log({ values, actions });
               actions.setSubmitting(false);
-              this.props.userSuccess(
+              this.props.userUpdate(
                 new UserData(
                   values.email,
                   values.address,
@@ -89,16 +88,6 @@ class Profile extends React.Component<Props, { loading: boolean }> {
                   values.username,
                 ),
               );
-              this.setState({ loading: true });
-              setTimeout(() => {
-                this.setState({ loading: false });
-                Toast.show({
-                  text: I18n.t('profileUpdated'),
-                  buttonText: "X",
-                  type: "success"
-                })
-                this.props.navigation.navigate('Pets');
-              }, 5000);
             }}
             render={formikBag => (
               <Form>
@@ -220,7 +209,7 @@ class Profile extends React.Component<Props, { loading: boolean }> {
                   name="confirmPassword"
                   render={errorMsg => <ErrorMessageText error={errorMsg} />}
                 />
-                {!this.state.loading ? (
+                {!this.props.fetching ? (
                   <Button
                     block
                     onPress={formikBag.handleSubmit}

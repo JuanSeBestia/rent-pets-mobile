@@ -2,6 +2,12 @@ import Axios from 'axios';
 import mockPets from '../Moks/api';
 import { UserData } from '../models/user';
 const baseUrl = '';
+
+export function delayPromise<T>(ms: number) {
+  return (x: T): Promise<T> =>
+    new Promise(resolve => setTimeout(() => resolve(x), ms));
+}
+
 export default {
   pets: {
     fecthAll: () => Promise.resolve(mockPets), // Mocks
@@ -20,5 +26,6 @@ export default {
           userdata,
         ),
       ),
+    update: (userData: UserData) => delayPromise<UserData>(2000)(userData),
   },
 };
