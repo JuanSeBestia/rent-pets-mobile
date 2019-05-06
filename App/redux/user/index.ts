@@ -7,12 +7,14 @@ export interface iTypesUser {
   USER_SUCCESS: string;
   USER_FAILURE: string;
   USER_FETCH: string;
+  LOGGOUT: string;
 }
 export interface iCreatorsUser {
   userRequest: (payload: string) => AnyAction;
   userFetch: (payload: string) => AnyAction;
   userSuccess: (payload: any) => AnyAction;
   userFailure: (payload: string) => AnyAction;
+  loggout: () => AnyAction;
 }
 const { Types, Creators } = createActions<iTypesUser, iCreatorsUser>(
   {
@@ -20,6 +22,7 @@ const { Types, Creators } = createActions<iTypesUser, iCreatorsUser>(
     userFetch: ['payload'],
     userSuccess: ['payload'],
     userFailure: ['payload'],
+    loggout: [],
   },
   { prefix: '@Pets/User/' },
 );
@@ -30,10 +33,10 @@ export default UserCreators;
 
 /* ------------- Initial State ------------- */
 export interface iStateUser {
-  userData: any;
+  userData?: UserData;
   fetching: boolean;
   error: string;
-  username: string | undefined;
+  username: string;
 }
 
 export const INITIAL_STATE: iStateUser = {
@@ -62,7 +65,10 @@ export const request = (
 });
 
 // successful userdata lookup
-export const success = (state: iStateUser, { payload }: iAction<any>): iStateUser => ({
+export const success = (
+  state: iStateUser,
+  { payload }: iAction<any>,
+): iStateUser => ({
   ...state,
   fetching: false,
   userData: payload,
@@ -79,11 +85,20 @@ export const failure = (
   error: payload || '',
 });
 
+export const loggout = (state: iStateUser, {  }: iAction<any>): iStateUser => ({
+  ...state,
+  fetching: false,
+  userData: undefined,
+  error: '',
+  username: '',
+});
+
 /* ------------- Hookup Reducers To Types ------------- */
 const reducer = createReducer(INITIAL_STATE, {
   [Types.USER_REQUEST]: request,
   [Types.USER_SUCCESS]: success,
   [Types.USER_FAILURE]: failure,
+  [Types.LOGGOUT]: loggout,
 });
 
 export const UserReducer = reducer;
@@ -93,6 +108,7 @@ export const UserReducer = reducer;
 import api from '../../util/api/axios';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { AnyAction } from 'redux';
+import { UserData } from '../../util/models/user';
 
 export function* fetchUserData(action: iAction<string>) {
   try {

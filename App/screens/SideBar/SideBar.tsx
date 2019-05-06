@@ -1,12 +1,38 @@
 import React from 'react';
 import { Image } from 'react-native';
-import { Text, Container, List, ListItem, Content } from 'native-base';
+import {
+  Text,
+  Container,
+  List,
+  ListItem,
+  Content,
+  Button,
+} from 'native-base';
 import { NavigationScreenProps } from 'react-navigation';
+import { connect } from 'react-redux';
+import UserCreators, { iStateUser, iCreatorsUser } from '../../redux/user';
+import { Dispatch, bindActionCreators } from 'redux';
+import I18n from '../../I18n';
 const routes = ['Pets', 'Profile', 'Rents'];
 
-interface Props extends NavigationScreenProps {}
+interface iPropsState extends iStateUser {}
+const mapStateToProps = (state: { user: iStateUser }): iPropsState => {
+  return {
+    ...state.user,
+  };
+};
 
-export default class SideBar extends React.Component<any> {
+interface iPropsDispatch extends iCreatorsUser {}
+const mapDispatchToProps = (dispatch: Dispatch): iPropsDispatch => ({
+  // @ts-ignore
+  ...bindActionCreators(UserCreators, dispatch),
+});
+
+interface Props extends NavigationScreenProps, iStateUser, iCreatorsUser {
+  [extraProps: string]: any;
+}
+
+class SideBar extends React.Component<Props> {
   render() {
     return (
       <Container>
@@ -52,7 +78,23 @@ export default class SideBar extends React.Component<any> {
             }}
           />
         </Content>
+        {/* <Footer> */}
+        <Button
+          full
+          onPress={() => {
+            this.props.loggout();
+            this.props.navigation.navigate('Login');
+          }}
+        >
+          <Text>{I18n.t('loggout')}</Text>
+        </Button>
+        {/* </Footer> */}
       </Container>
     );
   }
 }
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SideBar);

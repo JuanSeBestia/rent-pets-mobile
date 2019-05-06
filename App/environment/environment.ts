@@ -33,5 +33,5 @@ console.log('API', {
   env: process.env,
   REACT_APP_COSA: process.env.REACT_APP_COSA,
 });
-
+export const DEFAULT_STACK_SCREEN = 'Profile';
 export const API: string | undefined = process.env.API;

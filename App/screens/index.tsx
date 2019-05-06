@@ -11,6 +11,7 @@ import Login from './Login';
 import PetDetail from './PetDetail/PetDetail';
 import Rents from './Rents/Rents';
 import Profile from './Profile/Profile';
+import { DEFAULT_STACK_SCREEN } from '../environment/environment';
 
 // Navigator
 const PetsStackNavigator = createStackNavigator({
@@ -28,6 +29,7 @@ const AppLoggedNavigator = createDrawerNavigator(
   },
   {
     contentComponent: props => <SideBar {...props} />,
+    initialRouteName: DEFAULT_STACK_SCREEN,
   },
 );
 

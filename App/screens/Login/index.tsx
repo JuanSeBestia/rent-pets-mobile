@@ -20,7 +20,7 @@ import { NavigationScreenProps, NavigationActions } from 'react-navigation';
 import UserCreators, { iStateUser, iCreatorsUser } from '../../redux/user';
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import props from 'ramda/es/props';
+import { DEFAULT_STACK_SCREEN } from '../../environment/environment';
 
 const SignupSchema = Yup.object().shape({
   password: Yup.string()
@@ -59,7 +59,7 @@ export class Login extends Component<Props> {
 
   goToApp = () => {
     this.props.navigation.dispatch(
-      NavigationActions.navigate({ routeName: 'PetsScreen' }),
+      NavigationActions.navigate({ routeName: DEFAULT_STACK_SCREEN }),
     );
   };
   render() {
