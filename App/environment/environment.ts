@@ -36,5 +36,5 @@ console.log('API', {
 // Dev
 console.disableYellowBox = true;
 
-export const DEFAULT_STACK_SCREEN = 'Profile';
+export const DEFAULT_STACK_SCREEN = 'Pets';
 export const API: string | undefined = process.env.API;

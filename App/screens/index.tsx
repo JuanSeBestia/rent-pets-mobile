@@ -5,7 +5,7 @@ import {
   createSwitchNavigator,
   createStackNavigator,
 } from 'react-navigation';
-import PetsScreen from './Pets/PetsScreen';
+import PetsScreen from './PetsScreen';
 import SideBar from './SideBar/SideBar';
 import Login from './Login';
 import PetDetail from './PetDetail/PetDetail';
