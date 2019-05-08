@@ -12,6 +12,7 @@ import PetDetail from './PetDetail/PetDetail';
 import Rents from './Rents/Rents';
 import Profile from './Profile/Profile';
 import { DEFAULT_STACK_SCREEN } from '../environment/environment';
+import Orders from './Orders';
 
 // Navigator
 const PetsStackNavigator = createStackNavigator({
@@ -25,6 +26,9 @@ const AppLoggedNavigator = createDrawerNavigator(
     Rents: { screen: createStackNavigator({ RentsScreen: { screen: Rents } }) },
     Profile: {
       screen: createStackNavigator({ ProfileScreen: { screen: Profile } }),
+    },
+    Orders: {
+      screen: createStackNavigator({ OrersScreen: { screen: Orders } }),
     },
   },
   {

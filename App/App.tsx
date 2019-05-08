@@ -18,6 +18,8 @@ import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
 import Loading from './screens/Loading';
 import { Root } from 'native-base';
+import { Provider as MobXProvider } from 'mobx-react';
+import rootMobxStore from './mobx';
 
 const { persistor, store } = ConfigureStore();
 
@@ -26,19 +28,21 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Provider store={store}>
-        <PersistGate
-          loading={<Loading title="persist" />}
-          persistor={persistor}
-        >
-          <Root>
-            <RootAppNavigations
-              ref={navigatorRef => {
-                navigatorRef &&
-                  NavigationService.setTopLevelNavigator(navigatorRef);
-              }}
-            />
-          </Root>
-        </PersistGate>
+        <MobXProvider {...rootMobxStore}>
+          <PersistGate
+            loading={<Loading title="persist" />}
+            persistor={persistor}
+          >
+            <Root>
+              <RootAppNavigations
+                ref={navigatorRef => {
+                  navigatorRef &&
+                    NavigationService.setTopLevelNavigator(navigatorRef);
+                }}
+              />
+            </Root>
+          </PersistGate>
+        </MobXProvider>
       </Provider>
     );
   }

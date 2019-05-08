@@ -11,6 +11,8 @@
     "axios": "^0.18.0",
     "faker": "^4.1.0",
     "formik": "^1.5.4",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
     "native-base": "^2.12.1",
     "ramda": "^0.26.1",
     "react": "16.8.3",
@@ -29,6 +31,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/runtime": "^7.4.3",
     "@types/faker": "^4.1.5",
     "@types/jest": "^24.0.11",
