@@ -15,6 +15,10 @@ export const generalStyles = StyleSheet.create({
   WidthFull: {
     width: win.width,
   },
+  ImageSize: {
+    width: win.width,
+    height: win.height * 0.3,
+  },
   Padding: {
     padding: spacing[4],
   },
